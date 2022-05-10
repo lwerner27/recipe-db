@@ -1,7 +1,19 @@
-import "./App.css";
+import { Link, Routes, Route } from "react-router-dom";
+import Login from "./Pages/Login";
+import Profile from "./Pages/Profile";
 
-function App() {
-    return <h1 className='text-3xl font-bold underline'>Hello world!</h1>;
+export default function App() {
+    return (
+        <div>
+            <nav className='py-3 text-center'>
+                <Link to='/login'>LOGIN</Link> |{" "}
+                <Link to='/profile'>PROFILE</Link>
+            </nav>
+
+            <Routes>
+                <Route path='login' element={<Login />} />
+                <Route path='profile' element={<Profile />} />
+            </Routes>
+        </div>
+    );
 }
-
-export default App;
