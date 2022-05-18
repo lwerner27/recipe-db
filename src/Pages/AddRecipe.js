@@ -7,6 +7,8 @@ class AddRecipe extends React.Component {
             recipeTitle: "",
             recipeSource: "",
             recipeNotes: "",
+            recipeDifficulty: "",
+            recipeDuration: "",
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -69,8 +71,58 @@ class AddRecipe extends React.Component {
                             id='recipeTitle'
                             name='recipeTitle'
                             className='block w-full'
+                            placeholder='Spicy Chicken'
                             onChange={this.handleChange}
                         />
+                    </div>
+
+                    <div className='form-group mb-4'>
+                        <label
+                            htmlFor='recipeSource'
+                            className='block w-full mb-1'
+                        >
+                            Recipe Difficulty
+                        </label>
+                        <select
+                            id='recipeDifficulty'
+                            name='recipeDifficulty'
+                            className='w-full'
+                            onChange={this.handleChange}
+                        >
+                            <option selected disabled>
+                                Choose Difficulty Level
+                            </option>
+                            <option value='1'>1 (Easiest)</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5 (Hardest)</option>
+                        </select>
+                    </div>
+
+                    <div className='form-group mb-4'>
+                        <label
+                            htmlFor='recipeDuration'
+                            className='block w-full mb-1'
+                        >
+                            Recipe Duration
+                        </label>
+                        <select
+                            id='recipeDuration'
+                            name='recipeDuration'
+                            className='w-full'
+                            onChange={this.handleChange}
+                        >
+                            <option selected disabled>
+                                Choose Duration
+                            </option>
+                            <option value='short'>
+                                Short (Less than 1 hour)
+                            </option>
+                            <option value='long'>
+                                Long (More than 1 hour)
+                            </option>
+                        </select>
                     </div>
 
                     <div className='form-group mb-4'>
@@ -114,28 +166,12 @@ class AddRecipe extends React.Component {
                         ></textarea>
                     </div>
 
-                    <div className='form-group'>
+                    <div className='form-group mb-4'>
                         <button className='bg-slate-700 text-slate-100 block w-full py-2'>
                             Submit
                         </button>
                     </div>
                 </form>
-                {/* For Testing Inputs and onChange handler */}
-                {/* <ul>
-                    <li>Recipe Title: {this.state.recipeTitle}</li>
-                    <li>Recipe Notes: {this.state.recipeNotes}</li>
-                    <li>Recipe Source: {this.state.recipeSource}</li>
-                    {this.state.recipeSource === "book" ? (
-                        <li>Book Title: {this.state.bookTitle}</li>
-                    ) : (
-                        ""
-                    )}
-                    {this.state.recipeSource === "website" ? (
-                        <li>Website Link: {this.state.websiteLink}</li>
-                    ) : (
-                        ""
-                    )}
-                </ul> */}
             </div>
         );
     }
