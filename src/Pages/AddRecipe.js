@@ -11,10 +11,33 @@ class AddRecipe extends React.Component {
             recipeDuration: "default",
         };
         this.handleChange = this.handleChange.bind(this);
+        this.saveRecipe = this.saveRecipe.bind(this);
     }
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value });
+    }
+
+    saveRecipe(event) {
+        event.preventDefault();
+        let recipes = localStorage.getItem("recipes");
+
+        if (recipes !== null) {
+            recipes = JSON.parse(recipes);
+            console.log(recipes);
+            recipes.push(this.state);
+            localStorage.setItem("recipes", JSON.stringify(recipes));
+        } else {
+            localStorage.setItem("recipes", JSON.stringify([this.state]));
+        }
+
+        this.setState({
+            recipeTitle: "",
+            recipeSource: "default",
+            recipeNotes: "",
+            recipeDifficulty: "default",
+            recipeDuration: "default",
+        });
     }
 
     bookOrWeb(source) {
@@ -72,6 +95,7 @@ class AddRecipe extends React.Component {
                             name='recipeTitle'
                             className='block w-full'
                             placeholder='Spicy Chicken'
+                            value={this.state.recipeTitle}
                             onChange={this.handleChange}
                         />
                     </div>
@@ -165,12 +189,16 @@ class AddRecipe extends React.Component {
                             name='recipeNotes'
                             className='w-full'
                             rows={5}
+                            value={this.state.recipeNotes}
                             onChange={this.handleChange}
                         ></textarea>
                     </div>
 
                     <div className='form-group mb-4'>
-                        <button className='bg-slate-700 text-slate-100 block w-full py-2'>
+                        <button
+                            className='bg-slate-700 text-slate-100 block w-full py-2'
+                            onClick={this.saveRecipe}
+                        >
                             Submit
                         </button>
                     </div>
