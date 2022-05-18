@@ -24,7 +24,6 @@ class AddRecipe extends React.Component {
 
         if (recipes !== null) {
             recipes = JSON.parse(recipes);
-            console.log(recipes);
             recipes.push(this.state);
             localStorage.setItem("recipes", JSON.stringify(recipes));
         } else {
