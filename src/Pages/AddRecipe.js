@@ -5,10 +5,10 @@ class AddRecipe extends React.Component {
         super(props);
         this.state = {
             recipeTitle: "",
-            recipeSource: "",
+            recipeSource: "default",
             recipeNotes: "",
-            recipeDifficulty: "",
-            recipeDuration: "",
+            recipeDifficulty: "default",
+            recipeDuration: "default",
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -88,8 +88,9 @@ class AddRecipe extends React.Component {
                             name='recipeDifficulty'
                             className='w-full'
                             onChange={this.handleChange}
+                            value={this.state.recipeDifficulty}
                         >
-                            <option selected disabled>
+                            <option value='default' disabled>
                                 Choose Difficulty Level
                             </option>
                             <option value='1'>1 (Easiest)</option>
@@ -112,8 +113,9 @@ class AddRecipe extends React.Component {
                             name='recipeDuration'
                             className='w-full'
                             onChange={this.handleChange}
+                            value={this.state.recipeDuration}
                         >
-                            <option selected disabled>
+                            <option value='default' disabled>
                                 Choose Duration
                             </option>
                             <option value='short'>
@@ -137,8 +139,9 @@ class AddRecipe extends React.Component {
                             name='recipeSource'
                             className='w-full'
                             onChange={this.handleChange}
+                            value={this.state.recipeSource}
                         >
-                            <option selected disabled>
+                            <option value='default' disabled>
                                 Choose Source
                             </option>
                             <option value='book'>Book</option>
