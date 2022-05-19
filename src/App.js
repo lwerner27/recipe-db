@@ -1,4 +1,5 @@
 import { Link, Routes, Route } from "react-router-dom";
+import Index from "./Pages";
 import AddRecipe from "./Pages/AddRecipe";
 import Login from "./Pages/Login";
 
@@ -13,7 +14,7 @@ export default function App() {
             <Routes>
                 <Route path='login' element={<Login />} />
                 <Route path='add-recipe' element={<AddRecipe />} />
-                <Route path='default' element={<Login />} />
+                <Route path='/' element={<Index />} />
             </Routes>
         </div>
     );
